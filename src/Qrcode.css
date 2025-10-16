@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f6f8;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 15px 50px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #0077ff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+nav a {
+  color: #333;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #0077ff;
+}
+
+/* Horizontal Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+  margin-top: 15px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.3s;
+}
+
+.tab-btn.active {
+  border-bottom: 3px solid #0077ff;
+  color: #0077ff;
+  font-weight: 600;
+}
+
+/* Main Box */
+.main-box {
+  display: flex;
+  width: 85%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+.left-section {
+  flex: 1;
+  padding: 30px;
+  border-right: 1px solid #eee;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 12px 8px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.3s;
+}
+
+.section-btn.active {
+  color: #0077ff;
+  font-weight: 600;
+  background: #f0f8ff;
+  border-radius: 8px;
+}
+
+.section-content {
+  margin-top: 20px;
+}
+
+.slide {
+  animation: slideDown 0.4s ease;
+}
+
+.slide label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.slide input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1.8px solid #0077ff;
+  border-radius: 6px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.slide input[type="color"] {
+  margin-bottom: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+}
+
+.coming-soon {
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.preview-text {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #444;
+}
+
+.footer {
+  background: #ffffff;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  color: #777;
+  font-size: 14px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.map-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.map-container p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+/* Download Button Style */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers QR code and button horizontally */
+    justify-content: flex-start; /* items start from top */
+    gap: 15px; /* spacing between QR preview and download button */
+    padding: 20px; /* optional: gives some breathing space */
+}
+
+.dbtn {
+    padding: 15px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dbtn:hover {
+    background-color: #04622b;
+}
