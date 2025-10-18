@@ -26,6 +26,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -53,10 +54,12 @@ nav a:hover {
   width: 100%;
   border-bottom: 2px solid #ddd;
   margin-top: 15px;
+  flex-wrap: wrap;
 }
 
 .tab-btn {
   flex: 1;
+  min-width: 100px;
   padding: 12px 0;
   border: none;
   background: none;
@@ -95,6 +98,8 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;
+  padding: 20px;
 }
 
 .section-buttons {
@@ -134,7 +139,8 @@ nav a:hover {
   font-weight: 500;
 }
 
-.slide input[type="text"] {
+.slide input[type="text"],
+.slide input[type="number"] {
   width: 100%;
   padding: 10px;
   border: 1.8px solid #0077ff;
@@ -186,37 +192,110 @@ nav a:hover {
     transform: translateY(0);
   }
 }
-.map-container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
-.map-container p {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
 /* Download Button Style */
-.right-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* centers QR code and button horizontally */
-    justify-content: flex-start; /* items start from top */
-    gap: 15px; /* spacing between QR preview and download button */
-    padding: 20px; /* optional: gives some breathing space */
-}
-
 .dbtn {
-    padding: 15px 25px;
-    font-size: 16px;
-    color: white;
-    background-color: #27ae60;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 15px 25px;
+  font-size: 16px;
+  color: white;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .dbtn:hover {
-    background-color: #04622b;
+  background-color: #04622b;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-box {
+    width: 95%;
+  }
+
+  .header {
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-box {
+    flex-direction: column;
+    width: 95%;
+    margin: 20px 0;
+  }
+
+  .left-section {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .right-section {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    flex: none;
+    width: 50%;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .dbtn {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px 20px;
+  }
+
+  nav a {
+    margin: 0 10px 5px 0;
+    font-size: 13px;
+  }
+
+  .tab-btn {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .section-btn {
+    font-size: 14px;
+  }
+
+  .slide input[type="text"],
+  .slide input[type="number"] {
+    font-size: 14px;
+  }
+
+  .dbtn {
+    width: 90%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .main-box {
+    border-radius: 8px;
+  }
 }
