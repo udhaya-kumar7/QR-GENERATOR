@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Qrcode.css";
 import { QRCodeCanvas } from "qrcode.react";
 
@@ -12,6 +12,14 @@ export const Qrcode = () => {
   const [qrSize, setQrSize] = useState(250);
   const [eyeRadius, setEyeRadius] = useState(0);
   const [validationError, setValidationError] = useState("");
+
+  // Apply border radius to canvas after it renders
+  useEffect(() => {
+    const canvas = document.getElementById("qrCodeCanvas");
+    if (canvas) {
+      canvas.style.borderRadius = `${eyeRadius}px`;
+    }
+  }, [eyeRadius]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
