@@ -50,3 +50,29 @@
 /* base font */
 html, body, #root { height: 100%; }
 body { @apply font-inter bg-slate-50 text-slate-900 }
+
+/* Small/narrow screen form tweaks: slightly smaller labels and tighter inputs */
+@media (max-width: 420px) {
+  .left-panel label {
+    font-size: 0.85rem; /* ~14px */
+  }
+
+  .left-panel input[type="text"],
+  .left-panel input[type="url"],
+  .left-panel input[type="email"],
+  .left-panel input[type="tel"],
+  .left-panel input[type="color"],
+  .left-panel select,
+  .left-panel textarea {
+    padding-top: 0.5rem; /* slightly smaller */
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.95rem; /* slightly smaller text */
+  }
+
+  /* make label and input visually compact but still stacked */
+  .left-panel .p-4 {
+    padding: 0.6rem;
+  }
+}

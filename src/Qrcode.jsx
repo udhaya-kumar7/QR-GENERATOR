@@ -204,7 +204,7 @@ export const Qrcode = () => {
         {/* content input is rendered inside the left panel's section-content (below) when Content section is active */}
 
         <div className="content-card grid md:grid-cols-[1fr_420px] grid-cols-1 gap-7 bg-white rounded-2xl p-7 shadow my-8 md:divide-x md:divide-slate-100">
-          <div className="left-panel flex flex-col gap-6 md:pr-6">
+          <div className="left-panel flex flex-col gap-6 md:pr-6 max-h-[60vh] overflow-y-auto md:max-h-none md:overflow-visible" style={{WebkitOverflowScrolling: 'touch'}}>
             <div>
               <h3 className="text-lg font-bold text-slate-900">Customize Your QR</h3>
               <div className="w-16 h-1 bg-gradient-to-r from-indigo-600 to-blue-400 rounded mt-3"></div>
@@ -253,19 +253,22 @@ export const Qrcode = () => {
 
                       {activeSection === 'colors' && (
                         <div className="p-4 border-t border-slate-100">
-                          <div className="flex flex-col gap-4">
-                            <div>
+                          {/* Stack on small screens, sit side-by-side on md+ */}
+                          <div className="flex flex-col gap-4 md:flex-row md:gap-4">
+                            <div className="md:flex-1">
                               <label className="block text-sm font-medium text-slate-700 mb-2">QR Code Color</label>
                               <div className="flex items-center gap-3 p-2 bg-white border border-slate-100 rounded">
                                 <input type="color" value={qrColor} onChange={(e) => setQrColor(e.target.value)} />
-                                <span className="font-mono text-sm text-slate-500">{qrColor}</span>
+                                {/* hide the hex on very small screens to avoid wrapping; show on sm+ */}
+                                <span className="font-mono text-sm text-slate-500 hidden sm:inline-block">{qrColor}</span>
                               </div>
                             </div>
-                            <div>
+
+                            <div className="md:flex-1">
                               <label className="block text-sm font-medium text-slate-700 mb-2">Background Color</label>
                               <div className="flex items-center gap-3 p-2 bg-white border border-slate-100 rounded">
                                 <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} />
-                                <span className="font-mono text-sm text-slate-500">{bgColor}</span>
+                                <span className="font-mono text-sm text-slate-500 hidden sm:inline-block">{bgColor}</span>
                               </div>
                             </div>
                           </div>
@@ -351,7 +354,7 @@ export const Qrcode = () => {
                 <h4 className="text-sm font-bold">Live Preview</h4>
                 <p className="text-sm text-slate-500">Real-time</p>
               </div>
-              <div className={`qr-canvas-wrapper p-6 bg-white rounded-xl shadow flex items-center justify-center ${previewRef.current && previewRef.current.classList.contains('preview-animate') ? 'preview-animate' : ''}`} ref={previewRef}>
+              <div className={`qr-canvas-wrapper p-6 bg-white rounded-xl shadow flex items-center justify-center mb-5 ${previewRef.current && previewRef.current.classList.contains('preview-animate') ? 'preview-animate' : ''}`} ref={previewRef}>
                 <QRCodeCanvas
                   id="qrCodeCanvas"
                   value={getQRValue()}
@@ -365,7 +368,7 @@ export const Qrcode = () => {
                   }
                 />
               </div>
-              <div className="mt-4">
+              <div className="mt-5">
                 <button onClick={downloadQr} className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg font-bold">Download QR Code</button>
               </div>
             </div>
