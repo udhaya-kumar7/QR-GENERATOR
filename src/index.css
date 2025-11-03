@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --brand: #2563EB }
+
+/* Minimal custom utilities used by the component (keep small) */
+.gradient-bg-custom {
+  /* subtle background gradient */
+  background: linear-gradient(90deg, rgba(37,99,235,0.04) 0%, rgba(59,130,246,0.02) 50%, rgba(37,99,235,0.03) 100%);
+}
+
+.preview-animate {
+  animation: previewPop 420ms cubic-bezier(.2,.9,.3,1) forwards;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Tab press micro-interaction */
+.tab-press {
+  animation: tabPress 260ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+@keyframes tabPress {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-4px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes previewPop {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.92;
+    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+  }
+  45% {
+    transform: scale(1.06);
+    opacity: 1;
+    filter: drop-shadow(0 12px 18px rgba(16,24,40,0.08));
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 8px 12px rgba(16,24,40,0.06));
+  }
+}
+
+/* base font */
+html, body, #root { height: 100%; }
+body { @apply font-inter bg-slate-50 text-slate-900 }
